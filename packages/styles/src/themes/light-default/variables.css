@@ -1,0 +1,14 @@
+:root {
+    /*font-size*/
+    --z-text-xs: var(--text-xs);
+    --z-text-sm: var(--text-sm);
+    --z-text-base: var(--text-base);
+    --z-text-lg: var(--text-lg);
+    --z-text-xl: var(--text-xl);
+
+    /*间距*/
+    --z-space-base: var(--spacing);
+
+    /*文字颜色*/
+    --z-text-color: var(--z-text-base)
+}
