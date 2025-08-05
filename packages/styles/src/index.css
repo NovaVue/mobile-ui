@@ -1,25 +1,24 @@
 @import 'tailwindcss';
+@import './base/index.css';
 
-@theme {
-}
 
-.doodle-bg {
-  position: absolute;
-  z-index: -2;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  /* background-color: rgba(0, 0, 0, 0.1); */
-  /* background-color: rgb(236, 236, 236, 1); */
-  background-color: rgb(246, 246, 246);
-}
-&::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  backdrop-filter: blur(6.25rem);
-  z-index: -1;
-}
+/*.doodle-bg {*/
+/*  position: absolute;*/
+/*  z-index: -2;*/
+/*  width: 100vw;*/
+/*  height: 100vh;*/
+/*  overflow: hidden;*/
+/*  !* background-color: rgba(0, 0, 0, 0.1); *!*/
+/*  !* background-color: rgb(236, 236, 236, 1); *!*/
+/*  background-color: rgb(246, 246, 246);*/
+/*}*/
+/*&::after {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  height: 100vh;*/
+/*  width: 100vw;*/
+/*  backdrop-filter: blur(6.25rem);*/
+/*  z-index: -1;*/
+/*}*/

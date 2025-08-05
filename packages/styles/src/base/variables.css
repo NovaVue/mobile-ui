@@ -1,0 +1,83 @@
+@theme static {
+  /*font-size*/
+  --v-text-mini: 0.7rem;
+  --v-text-mini--line-height: calc(1 / 0.7);
+  --v-text-xs: var(--text-xs);
+  --v-text-xs--line-height: var(--text-xs--line-height);
+  --v-text-sm: var(--text-sm);
+  --v-text-sm--line-height: var(--text-sm--line-height);
+  --v-text-base: var(--text-base);
+  --v-text-base--line-height: var(--text-base--line-height);
+  --v-text-lg: var(--text-lg);
+  --v-text-lg--line-height: var(--text-lg--line-height);
+  --v-text-xl: var(--text-xl);
+  --v-text-xl--line-height: var(--text-xl--line-height);
+  --v-text-2xl: var(--text-2xl);
+  --v-text-2xl--line-height: var(--text-2xl--line-height);
+  --v-text-3xl: var(--text-3xl);
+  --v-text-3xl--line-height: var(--text-3xl--line-height);
+  --v-text-4xl: var(--text-4xl);
+  --v-text-4xl--line-height: var(--text-4xl--line-height);
+  --v-text-5xl: var(--text-5xl);
+  --v-text-5xl--line-height: var(--text-5xl--line-height);
+  --v-text-6xl: var(--text-6xl);
+  --v-text-6xl--line-height: var(--text-6xl--line-height);
+  --v-text-7xl: var(--text-7xl);
+  --v-text-7xl--line-height: var(--text-7xl--line-height);
+  --v-text-8xl: var(--text-8xl);
+  --v-text-8xl--line-height: var(--text-8xl--line-height);
+  --v-text-9xl: var(--text-9xl);
+  --v-text-9xl--line-height: var(--text-9xl--line-height);
+
+  /*font-weight*/
+  /*--font-weight-thin: 100;*/
+  /*--font-weight-extralight: 200;*/
+  /*--font-weight-light: 300;*/
+  /*--font-weight-normal: 400;*/
+  /*--font-weight-medium: 500;*/
+  /*--font-weight-semibold: 600;*/
+  /*--font-weight-bold: 700;*/
+  /*--font-weight-extrabold: 800;*/
+  /*--font-weight-black: 900;*/
+  --v-font-weight-100: var(--font-weight-thin);
+  --v-font-weight-200: var(--font-weight-extralight);
+  --v-font-weight-300: var(--font-weight-light);
+  --v-font-weight-400: var(--font-weight-normal);
+  --v-font-weight-500: var(--font-weight-medium);
+  --v-font-weight-600: var(--font-weight-semibold);
+  --v-font-weight-700: var(--font-weight-bold);
+  --v-font-weight-800: var(--font-weight-extrabold);
+  --v-font-weight-900: var(--font-weight-black);
+
+  /*文本颜色*/
+  --v-text-color-dark: hsla(220, 5%, 22%, 1);
+  --v-text-color-dark-1: hsla(220, 5%, 22%, 1);
+  --v-text-color-dark-2: hsla(0, 0%, 15%, 1);
+  --v-text-color-dark-3: hsla(214, 7%, 45%, 1);
+  --v-text-color-dark-4: hsla(0, 0%, 52%, 1);
+  --v-text-color-dark-5: hsla(0, 0%, 94%, 1);
+  /*TODO color-normal*/
+  --v-text-color-normal: #292b2c;
+  --v-text-color-medium: #35373b;
+  /*--v-text-color-light: hsla(0, 0%, 100%, 1);*/
+  --v-text-color-light-1: hsla(0, 0%, 100%, 0.95);
+  --v-text-color-light-2: hsla(0, 0%, 100%, 0.85);
+  --v-text-color-light-3: hsla(0, 0%, 100%, 0.75);
+  --v-text-color-light-4: hsla(0, 0%, 100%, 0.55);
+  --v-text-color-light-5: hsla(0, 0%, 100%, 0.2);
+
+  /*间距*/
+  --v-spacing-mini: 0.1rem;
+  --v-spacing-sm: 0.55rem;
+  --v-spacing-base: 0.75rem;
+  --v-spacing-lg: 0.95rem;
+
+  /*圆角*/
+  --v-radius-base: var(--radius-lg);
+
+  /*背景色*/
+  --v-background-base: #ffffff;
+
+  /*主色调*/
+  --v-primary-color: var(--v-theme-color-blue);
+}

@@ -1,0 +1,15 @@
+.v-value {
+  --v-value_suffix-spacing: 0.15rem;
+}
+
+.v-value_suffix {
+  margin-left: var(--v-value_suffix-spacing);
+}
+
+.v-number {
+  --v-value_suffix-spacing: 0.15rem;
+}
+
+.v-percent {
+  --v-value_suffix-spacing: 0.15rem;
+}

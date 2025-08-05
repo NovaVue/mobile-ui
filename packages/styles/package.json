@@ -1,5 +1,5 @@
 {
-  "name": "@zve/styles",
+  "name": "@novavue/styles",
   "version": "0.0.0",
   "type": "module",
   "files": [
@@ -9,6 +9,7 @@
     "light"
   ],
   "exports": {
+    ".": "./dist/main.css",
     "./themes/dark-default/": "./src/themes/dark-default/index.css",
     "./themes/light-default/": "./src/themes/light-default/index.css"
   },

@@ -1,39 +1,58 @@
 <script setup lang="ts">
-import { useRoute } from 'vitepress'
-import { computed } from 'vue'
-import { useData } from '../composables/data'
-import { useLayout } from '../composables/layout'
-import VPDocAside from './VPDocAside.vue'
-import VPDocFooter from './VPDocFooter.vue'
-
-const { theme } = useData()
-
-const route = useRoute()
-const { hasSidebar, hasAside, leftAside } = useLayout()
-
+import { useRoute } from 'vitepress';
+import { computed } from 'vue';
+import { useData } from '../composables/data';
+import { useLayout } from '../composables/layout';
+import VPDocAside from './VPDocAside.vue';
+import VPDocFooter from './VPDocFooter.vue';
+import VPMobile from './VPMobile.vue';
+const { theme, frontmatter } = useData();
+const route = useRoute();
+const { hasSidebar, hasAside, leftAside } = useLayout();
+console.log('frontmatter', frontmatter)
 const pageName = computed(() =>
-  route.path.replace(/[./]+/g, '_').replace(/_html$/, '')
-)
+    route.path.replace(/[./]+/g, '_').replace(/_html$/, ''),
+);
 </script>
 
 <template>
   <div
-    class="VPDoc"
-    :class="{ 'has-sidebar': hasSidebar, 'has-aside': hasAside }"
+      class="VPDoc"
+      :class="{ 'has-sidebar': hasSidebar, 'has-aside': hasAside }"
   >
     <slot name="doc-top" />
     <div class="container">
-      <div v-if="hasAside" class="aside" :class="{'left-aside': leftAside}">
+      <div
+          v-if="frontmatter.mobile"
+          class="aside-mobile"
+          :class="{ 'left-aside': true }"
+      >
+        <div class="aside-curtain-mobile" />
+        <div class="aside-container-mobile">
+          <div class="aside-content-mobile">
+            <VPMobile />
+          </div>
+        </div>
+      </div>
+      <div v-if="hasAside" class="aside" :class="{ 'left-aside': leftAside }">
         <div class="aside-curtain" />
         <div class="aside-container">
           <div class="aside-content">
             <VPDocAside>
               <template #aside-top><slot name="aside-top" /></template>
               <template #aside-bottom><slot name="aside-bottom" /></template>
-              <template #aside-outline-before><slot name="aside-outline-before" /></template>
-              <template #aside-outline-after><slot name="aside-outline-after" /></template>
-              <template #aside-ads-before><slot name="aside-ads-before" /></template>
-              <template #aside-ads-after><slot name="aside-ads-after" /></template>
+              <template #aside-outline-before
+              ><slot name="aside-outline-before"
+              /></template>
+              <template #aside-outline-after
+              ><slot name="aside-outline-after"
+              /></template>
+              <template #aside-ads-before
+              ><slot name="aside-ads-before"
+              /></template>
+              <template #aside-ads-after
+              ><slot name="aside-ads-after"
+              /></template>
             </VPDocAside>
           </div>
         </div>
@@ -44,15 +63,17 @@ const pageName = computed(() =>
           <slot name="doc-before" />
           <main class="main">
             <Content
-              class="vp-doc"
-              :class="[
+                class="vp-doc"
+                :class="[
                 pageName,
-                theme.externalLinkIcon && 'external-link-icon-enabled'
+                theme.externalLinkIcon && 'external-link-icon-enabled',
               ]"
             />
           </main>
           <VPDocFooter>
-            <template #doc-footer-before><slot name="doc-footer-before" /></template>
+            <template #doc-footer-before
+            ><slot name="doc-footer-before"
+            /></template>
           </VPDocFooter>
           <slot name="doc-after" />
         </div>
@@ -64,19 +85,20 @@ const pageName = computed(() =>
 
 <style scoped>
 .VPDoc {
-  padding: 32px 24px 96px;
+  /* padding: 32px 24px 96px; */
+  padding: 24px 12px 96px;
   width: 100%;
 }
 
 @media (min-width: 768px) {
   .VPDoc {
-    padding: 48px 32px 128px;
+    padding: 24px 24px 128px;
   }
 }
 
 @media (min-width: 960px) {
   .VPDoc {
-    padding: 48px 32px 0;
+    padding: 24px 24px 0;
   }
 
   .VPDoc:not(.has-sidebar) .container {
@@ -97,6 +119,10 @@ const pageName = computed(() =>
   }
 
   .VPDoc .aside {
+    display: block;
+  }
+
+  .VPDoc .aside-mobile {
     display: block;
   }
 }
@@ -126,6 +152,16 @@ const pageName = computed(() =>
   max-width: 256px;
 }
 
+.aside-mobile {
+  position: relative;
+  display: none;
+  order: 2;
+  flex-grow: 1;
+  padding-left: 32px;
+  width: 100%;
+  max-width: var(--vp-mobile-width);
+}
+
 .left-aside {
   order: 1;
   padding-left: unset;
@@ -135,8 +171,25 @@ const pageName = computed(() =>
 .aside-container {
   position: fixed;
   top: 0;
-  padding-top: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + var(--vp-doc-top-height, 0px) + 48px);
+  padding-top: calc(
+      var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
+      var(--vp-doc-top-height, 0px) + 24px
+  );
   width: 224px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.aside-container-mobile {
+  position: fixed;
+  top: 0;
+  padding-top: calc(
+      var(--vp-nav-height) + var(--vp-layout-top-height, 0px) +
+      var(--vp-doc-top-height, 0px) + 24px
+  );
+  width: var(--vp-mobile-width);
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
@@ -157,10 +210,42 @@ const pageName = computed(() =>
   pointer-events: none;
 }
 
+.aside-curtain-mobile {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  width: var(--vp-mobile-width);
+  height: 32px;
+  background: linear-gradient(transparent, var(--vp-c-bg) 70%);
+  pointer-events: none;
+}
+
+.aside-curtain-mobile {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  /* width: 224px; */
+  height: 32px;
+  background: linear-gradient(transparent, var(--vp-c-bg) 70%);
+  pointer-events: none;
+}
+
+.aside-content-mobile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(
+      100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px)
+  );
+  padding-bottom: 32px;
+}
+
 .aside-content {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px));
+  min-height: calc(
+      100vh - (var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 48px)
+  );
   padding-bottom: 32px;
 }
 
@@ -173,6 +258,7 @@ const pageName = computed(() =>
 @media (min-width: 960px) {
   .content {
     padding: 0 32px 128px;
+    /* padding: 0 24px 128px; */
   }
 }
 

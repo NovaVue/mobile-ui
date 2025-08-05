@@ -11,15 +11,15 @@ export function getSidebar(genSidebar: any) {
       text: '指南',
       link: `${group}/guide`,
     },
-    {
-      // collapsed: true,
-      ...genSidebar({
-        group,
-        link: true,
-        path: '/themes',
-      }),
-      text: 'themes',
-    },
+    // {
+    //   // collapsed: true,
+    //   ...genSidebar({
+    //     group,
+    //     // link: true,
+    //     path: '/themes',
+    //   }),
+    //   text: 'themes',
+    // },
   ];
   return result;
 }
@@ -31,8 +31,8 @@ export function getConfig(genSidebar: any) {
       [`/${group}/`]: getSidebar(genSidebar),
     },
     rewrites: {
-      [`packages/:zto-${group}/src/:id`]: `${group}/:id`,
-      [`packages/:zto-${group}/src/(.*)/:id`]: `${group}/(.*)/:id`,
+      [`packages/:${group}/src/:id`]: `${group}/:id`,
+      [`packages/:${group}/src/(.*)/:id`]: `${group}/(.*)/:id`,
     },
   };
   return options;

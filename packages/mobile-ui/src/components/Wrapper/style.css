@@ -1,0 +1,5 @@
+.v-wrapper {
+    padding: var(--v-spacing-base);
+    background: var(--v-background-base);
+    border-radius: var(--v-radius-base);
+}

@@ -1,0 +1,29 @@
+.v-space {
+  /*display: flex;*/
+}
+
+.v-space-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.v-space-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.v-space-lg {
+  gap: var(--v-spacing-lg);
+}
+
+.v-space-base {
+  gap: var(--v-spacing-base);
+}
+
+.v-space-sm {
+  gap: var(--v-spacing-sm);
+}
+
+.v-space-mini {
+  gap: var(--v-spacing-mini);
+}

@@ -8,7 +8,7 @@ import {
   ref,
   watch,
   watchEffect,
-  watchPostEffect
+  watchPostEffect,
 } from 'vue';
 import { isActive } from '../../../shared/shared';
 import { hasActiveLink as containsActiveLink } from '../support/sidebar';
@@ -62,12 +62,12 @@ export function useSidebarControl() {
     isOpen,
     open,
     close,
-    toggle
+    toggle,
   };
 }
 
 export function useSidebarItemControl(
-  item: ComputedRef<DefaultTheme.SidebarItem>
+  item: ComputedRef<DefaultTheme.SidebarItem>,
 ) {
   const { page, hash } = useData();
 
@@ -83,7 +83,9 @@ export function useSidebarItemControl(
 
   const isActiveLink = ref(false);
   const updateIsActiveLink = () => {
-    isActiveLink.value = isActive(page.value.relativePath, item.value.link);
+    isActiveLink.value =
+      isActive(page.value.relativePath, item.value.link) ||
+      page.value.relativePath === item.value.link;
   };
 
   watch([page, item, hash], updateIsActiveLink);
@@ -108,7 +110,7 @@ export function useSidebarItemControl(
   });
 
   watchPostEffect(() => {
-    ;(isActiveLink.value || hasActiveLink.value) && (collapsed.value = false);
+    (isActiveLink.value || hasActiveLink.value) && (collapsed.value = false);
   });
 
   function toggle() {
@@ -124,6 +126,6 @@ export function useSidebarItemControl(
     isActiveLink,
     hasActiveLink,
     hasChildren,
-    toggle
+    toggle,
   };
 }

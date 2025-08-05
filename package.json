@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "demo": "pnpm run --filter @apps/demo dev",
     "docs": "pnpm run --filter @apps/docs dev",
     "docs:build": "vitepress build docs",
-    "component:dev": "pnpm run --filter @zve/components dev",
-    "component:build": "pnpm run --filter @zve/components build",
-    "request:dev": "pnpm run --filter @ztocwst/request dev",
-    "request:build": "pnpm run --filter @ztocwst/request build",
-    "mock:dev": "pnpm run --filter @ztocwst/mock dev",
-    "mock:build": "pnpm run --filter @ztocwst/mock build",
+    "mobile:dev": "pnpm run --filter @novavue/mobile-ui dev",
+    "mobile:build": "pnpm run --filter @novavue/mobile-ui build",
+    "styles:build": "pnpm run --filter @novavue/styles build",
     "cg": "pnpm changeset",
     "version": "pnpm changeset version",
     "publish": "pnpm publish -r",
@@ -27,6 +25,8 @@
     "node": ">=18.12.0"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "tailwindcss": "^4.1.11",
     "vitepress": "^1.6.3"
   },
   "devDependencies": {
@@ -39,6 +39,7 @@
     "eslint": "^9.17.0",
     "eslint-plugin-import-x": "^4.5.0",
     "globby": "^14.1.0",
+    "gray-matter": "^4.0.3",
     "jsdom": "^25.0.1",
     "lint-staged": "^15.2.11",
     "prettier": "^3.4.2",

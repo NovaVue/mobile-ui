@@ -15,10 +15,11 @@
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "dependencies": {
-    "vitepress": "^1.6.3",
-    "@zve/styles": "workspace:*"
+    "@novavue/styles": "workspace:*",
+    "vitepress": "^1.6.3"
   },
   "devDependencies": {
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-rewrite": "^0.0.8"
   }
 }

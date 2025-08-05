@@ -1,0 +1,54 @@
+
+.v-text-base-1_3 {
+    font-size: calc(var(--v-text-base) / 1.3);
+    line-height: calc(var(--v-text-base--line-height) / 1.3);
+}
+
+
+
+.v-text-mini-1_3 {
+    font-size: calc(var(--v-text-mini) / 1.3);
+    line-height: calc(var(--v-text-mini--line-height) / 1.3);
+}
+
+
+
+.v-text-sm-1_3 {
+    font-size: calc(var(--v-text-sm) / 1.3);
+    line-height: calc(var(--v-text-sm--line-height) / 1.3);
+}
+
+
+
+.v-text-lg-1_3 {
+    font-size: calc(var(--v-text-lg) / 1.3);
+    line-height: calc(var(--v-text-lg--line-height) / 1.3);
+}
+
+
+
+.v-text-xl-1_3 {
+    font-size: calc(var(--v-text-xl) / 1.3);
+    line-height: calc(var(--v-text-xl--line-height) / 1.3);
+}
+
+
+
+.v-text-2xl-1_3 {
+    font-size: calc(var(--v-text-2xl) / 1.3);
+    line-height: calc(var(--v-text-2xl--line-height) / 1.3);
+}
+
+
+
+.v-text-3xl-1_3 {
+    font-size: calc(var(--v-text-3xl) / 1.3);
+    line-height: calc(var(--v-text-3xl--line-height) / 1.3);
+}
+
+
+
+.v-text-4xl-1_3 {
+    font-size: calc(var(--v-text-4xl) / 1.3);
+    line-height: calc(var(--v-text-4xl--line-height) / 1.3);
+}

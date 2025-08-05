@@ -1,0 +1,49 @@
+:root {
+  --v-theme-color-blue: #4070ff;
+  --v-theme-color-red: rgb(254, 74, 35);
+  --v-theme-color-pink: rgb(255, 52, 136);
+  --v-theme-color-orange: rgb(255, 129, 46);
+  --v-theme-color-yellow: rgb(254, 241, 0);
+  --v-theme-color-green: rgb(9, 185, 109);
+  --v-theme-color-sallow: rgb(185, 255, 102);
+  --v-theme-color-cyan: rgb(164, 245, 166);
+  --v-theme-color-cyan-1: rgb(224, 250, 232);
+  --v-theme-color-purple: rgb(112, 52, 255);
+  --v-theme-color-purple-1: rgb(179, 161, 255);
+  --v-theme-color-purple-2: rgb(213, 199, 255);
+}
+
+.v-theme-color-blue {
+  --v-primary-color: var(--v-theme-color-blue);
+}
+.v-theme-color-red {
+  --v-primary-color: var(--v-theme-color-red);
+}
+.v-theme-color-pink {
+  --v-primary-color: var(--v-theme-color-pink);
+}
+.v-theme-color-orange {
+  --v-primary-color: var(--v-theme-color-orange);
+}
+.v-theme-color-yellow {
+  --v-primary-color: var(--v-theme-color-yellow);
+}
+.v-theme-color-green {
+  --v-primary-color: var(--v-theme-color-green);
+}
+.v-theme-color-sallow {
+  --v-primary-color: var(--v-theme-color-sallow);
+}
+/*.v-theme-color-cyan {*/
+/*  --v-primary-color: var(--v-theme-color-cyan);*/
+/*}*/
+/*.v-theme-color-cyan-1 {*/
+/*  --v-primary-color: var(--v-theme-color-cyan-1);*/
+/*}*/
+.v-theme-color-purple {
+  --v-primary-color: var(--v-theme-color-purple);
+}
+
+/*.v-theme-color-purple-1 {*/
+/*  --v-primary-color: var(--v-theme-color-purple-1);*/
+/*}*/

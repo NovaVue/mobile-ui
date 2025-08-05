@@ -2,48 +2,55 @@ import { defineConfig } from 'vitepress';
 import { globbySync } from 'globby';
 import path from 'node:path';
 import fs from 'node:fs';
+import viteRewrite from 'vite-plugin-rewrite'
 
-import { getConfig as getMobileConfig } from '../../../packages/mobile/vitepress.config';
+import { vitePressConfig as mobileConfig } from '../../../packages/mobile-ui/vitepress.config';
+import { fileURLToPath, URL } from 'node:url';
 // import { getConfig as getDesktopConfig } from '../../packages/desktop/vitepress.config';
-import { getConfig as getStylesConfig } from '../../../packages/styles/vitepress.config';
+// import { getConfig as getStylesConfig } from '../../../packages/styles/vitepress.config';
 
 const parentDir = path.join(__dirname, '../../../'); // 上一级
-const mobileConfig = getMobileConfig(getSidebar);
+const mobile_ui = path.resolve(__dirname, '../../packages/mobile-ui/src/');
+
 // const desktopConfig = getDesktopConfig(getSidebar);
 // const requestConfig = getRequestConfig(getSidebar);
-const stylesConfig = getStylesConfig(getSidebar);
+// const stylesConfig = getStylesConfig(getSidebar);
 // https://vitepress.dev/reference/site-config
+
 export default defineConfig({
-  // sitemap: {
-  //   hostname: 'https://example.com',
-  //   transformItems: (items) => {
-  //     // 添加新项目或修改/筛选现有选项
-  //     console.log('sitemap items', items);
-  //     return items.map(item => {
-  //       return {
-  //         ...item,
-  //         url: item.url.replace('README', 'readme'), // 移除末尾的 index
-  //       }
-  //     })
-  //   }
-  // },
   cacheDir: './.vitepress/.cache',
   title: 'ZTO FED',
   description: 'ZTO FED Develop',
   lang: 'zh-Hans',
   cleanUrls: true, // 移除 .html 后缀
   rewrites: {
-    'docs/(.*)': '(.*)',
+    'apps/docs/(.*)': '(.*)',
     ...mobileConfig.rewrites,
     // ...desktopConfig.rewrites,
-    ...stylesConfig.rewrites,
+    // ...stylesConfig.rewrites,
+
   },
-  srcDir: '../',
+  srcDir: '../../',
   outDir: './dist',
   vite: {
     server: {
       port: 8888,
     },
+    resolve: {
+      alias: {
+        // '@novavue/mobile-ui': fileURLToPath(new URL(mobile_ui, import.meta.url)),
+        // '@novavue/mobile-ui/demo': fileURLToPath(new URL(mobile_ui_demo, import.meta.url)),
+        // '@novavue/styles': fileURLToPath(new URL(styles, import.meta.url)),
+      },
+    },
+    // plugins: [
+    //   viteRewrite({
+    //     rewrite: (path) => {
+    //       console.log('path', path)
+    //       return path.toLowerCase()
+    //     }
+    //   })
+    // ],
     // build: {
     //   rollupOptions: {
     //     output: {
@@ -60,16 +67,16 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      mobileConfig.nav,
+      ...mobileConfig.nav,
       // desktopConfig.nav,
       // requestConfig.nav,
-      stylesConfig.nav,
+      // stylesConfig.nav,
     ],
 
     sidebar: {
       ...mobileConfig.sidebar,
       // ...desktopConfig.sidebar,
-      ...stylesConfig.sidebar,
+      // ...stylesConfig.sidebar,
     },
 
     socialLinks: [
@@ -150,18 +157,18 @@ function getMarkdownTitle(filePath: string) {
 export function getSidebar(options: any) {
   const { path, group, link } = options;
   const packages = globbySync(
-    `**/**/packages/zto-${group}/**/${path}/**/index.md`,
+    `**/**/packages/${group}/**/${path}/**/index.md`,
     {
       cwd: parentDir,
       ignore: ['node_modules', 'dist', 'docs'].map(dir => `!**/${dir}/**`),
       // absolute: true, // 返回绝对路径
     },
   );
-
+console.log('packages', packages)
   const items = packages.map(page => {
     const text = getMarkdownTitle(page);
     const link = page
-      .replace('packages/zto-', '/')
+      .replace('packages/', '/')
       .replace('/src', '')
       .replace('.md', '');
     return {
