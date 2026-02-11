@@ -37,8 +37,6 @@ export interface Main
     Pick<RiseFallProps, 'sign'>,
     Partial<Font> {
   variant?: 'number' | 'percent';
-  // percent?: RiseFallProps & TargetBase & Partial<Font>;
-  // number?: NumberProps & TargetBase & Partial<Font>;
   number?: NumberProps & TargetBase;
 }
 
@@ -53,6 +51,13 @@ export interface SubObject extends Font {
 /*Group*/
 export interface TabBlockGroupProps extends BaseProps {
   variant: 'group';
+  key: string | number;
+  columns: TabBlockGroupColumn[];
+}
+
+export interface TabBlockGroupColumn {
+  main: Main[];
+  sug: Sub[];
 }
 
 /*Simple*/

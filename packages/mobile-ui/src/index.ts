@@ -10,5 +10,5 @@ export type { NumberProps, RiseFallProps } from './components/Number/types.ts';
 export type { TextProps } from './components/Text/types.ts';
 export type { WrapperProps } from './components/Wrapper/types.ts';
 export type { TitleProps } from './components/Title/types.ts';
-export type { TabBlockProps } from './components/TabBlock/types.ts';
+export type { TabBlockProps, TabBlockNormalProps, TabBlockGroupProps } from './components/TabBlock/types.ts';
 export type { SpaceProps } from './components/Space/types.ts';
