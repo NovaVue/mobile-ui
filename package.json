@@ -3,16 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "demo": "pnpm run --filter @apps/demo dev",
-    "docs": "pnpm run --filter @apps/docs dev",
+    "docs": "pnpm run --filter docs dev",
     "docs:build": "vitepress build docs",
-    "mobile:dev": "pnpm run --filter @novavue/mobile-ui dev",
-    "mobile:build": "pnpm run --filter @novavue/mobile-ui build",
+    "mobile:dev": "pnpm run --filter @novavue/vue dev",
+    "mobile:build": "pnpm run --filter @novavue/vue build",
     "styles:build": "pnpm run --filter @novavue/styles build",
     "cg": "pnpm changeset",
     "version": "pnpm changeset version",
     "publish": "pnpm publish -r",
-    "check": "echo 'No check script needed'"
+    "check": "echo 'No check script needed'",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "npm run lint"
   },
   "workspaces": [
     "packages/*"
@@ -42,6 +46,7 @@
     "gray-matter": "^4.0.3",
     "jsdom": "^25.0.1",
     "lint-staged": "^15.2.11",
+    "oxlint": "^1.51.0",
     "prettier": "^3.4.2",
     "semver": "^7.6.3",
     "simple-git-hooks": "^2.11.1",

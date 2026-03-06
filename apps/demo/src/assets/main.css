@@ -1,6 +1,0 @@
-@import './base.css';
-.d-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
