@@ -1,0 +1,11 @@
+{
+  "main": "./Table.vue",
+  "module": "./Table.vue",
+  "types": "./Table.d.ts",
+  "browser": {
+    "./sfc": "./Table.vue"
+  },
+  "sideEffects": [
+    "*.vue"
+  ]
+}
